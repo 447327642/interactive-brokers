@@ -79,13 +79,13 @@ reqHistory con = do
     _ -> return AContinue   
 
 cmdUsage :: IO ()
-cmdUsage = putStrLn "ib [hello | contracts SYMBOL-FAMILY [SYMBOL] | history SYMBOL-FAMILY [SYMBOL]"
+cmdUsage = putStrLn "ib [contracts SYMBOL-FAMILY [SYMBOL] | history SYMBOL-FAMILY [SYMBOL]]"
 
 ibContract :: String -> String -> IBContract
 ibContract sf s = future sf s Nothing GLOBEX "USD" 
 
 ib :: IB () -> IO ()
-ib cmds = finally (runIB def cmds) (threadDelay 1000000)
+ib cmds = runIB def cmds
 
 -----------------------------------------------------------------------------
 

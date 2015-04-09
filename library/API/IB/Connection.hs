@@ -23,7 +23,7 @@ module API.IB.Connection
 
 import           Control.Applicative
 import           Control.Arrow                    (arr, (>>>),(|||))
-import           Control.Concurrent.Async         (Async,cancel,wait,withAsync)
+import           Control.Concurrent.Async         (Async,cancel,withAsync)
 import           Control.Exception
 import           Control.Lens                     hiding (view)
 import           Control.Monad                    (forever,void,when)
@@ -399,13 +399,15 @@ withIB conf k = do
     stop a = do
       debugM "withIB stop"
       --runMVC () (asPipe $ yield $ Left $ IBServiceRequest ServiceStop) external
-      wait a
+      --wait a
+      --Replaced wait with cancel
+      cancel a
       sealAll
     
     errorHandler :: SomeException -> IO ()
     errorHandler e = do
       debugM $ "withIB error: " ++ show e
-      --TODO: take action depending on whehther async (ThreadKilled)
+      --TODO: take action depending on whether async (ThreadKilled)
       --or sync exception
       throwIO e   
 

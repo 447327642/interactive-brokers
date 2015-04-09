@@ -22,10 +22,7 @@ import           API.IB
 -- Reference data
 
 conES :: IBContract
-conES = future "ES" "ESH5" (Just $ fromGregorian 2015 03 20) GLOBEX "USD"
-
-conES' :: IBContract
-conES' = future "ES" "" Nothing GLOBEX "USD" 
+conES = future "ES" "ESZ5" (Just $ fromGregorian 2015 12 18) GLOBEX "USD"
 
 -- -----------------------------------------------------------------------------
 -- Requests
@@ -38,21 +35,21 @@ requests = do
   connect
   reqConData
   reqMktData
-  recvP 50
+  recvP 10
   displayStatus
   disconnect
   delay 5
   connect
   reqMktData
-  recvP 30
-  delay 10
+  recvP 10
+  delay 5
   stop
   displayStatus
   display "Finished"
   
   where
   
-  reqConData = requestContractData conES'
+  reqConData = requestContractData conES
   reqMktData = requestMarketData conES [] False
   displayStatus = status >>= display . show
   recvP n = replicateM_ n $ recv >>= display . show
@@ -67,4 +64,4 @@ main = do
   handler <- streamHandler stdout DEBUG >>= \h -> return $
    setFormatter h $ simpleLogFormatter "$time $loggername $prio: $msg"
   updateGlobalLogger rootLoggerName (setLevel DEBUG . setHandlers [handler])
-  finally (runIB def requests) (threadDelay 1000000)
+  runIB def requests

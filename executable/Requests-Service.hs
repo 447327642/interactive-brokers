@@ -216,4 +216,4 @@ main = do
   handler <- streamHandler stdout DEBUG >>= \h -> return $
    setFormatter h $ simpleLogFormatter "$time $loggername $prio: $msg"
   updateGlobalLogger rootLoggerName (setLevel DEBUG . setHandlers [handler])
-  finally (runMVC () model services) (threadDelay 1000000)
+  runMVC () model services

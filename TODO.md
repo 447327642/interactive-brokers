@@ -4,13 +4,13 @@ To Do List
 
 ### Documentation
 
-* README: review IB Controller username/password instructions, review latest IB Controller release
+* README: review IB Controller username/password instructions, review latest IB Controller release, update for new scripts (in scripts folder)
 * Haddocks markup
 
 ### Defects
 
 * Pico issue (see email): test on GHC 7.8.x - should be resolved
-* Thread blocked indefinitely in an STM transaction: see [pipes-concurrency issue](githhttps://github.com/Gabriel439/Haskell-Pipes-Concurrency-Library/issues/29)
+* Thread blocked indefinitely in an STM transaction: see [pipes-concurrency issue](https://github.com/Gabriel439/Haskell-Pipes-Concurrency-Library/issues/29)
 
 ### New features
 
@@ -48,6 +48,7 @@ To Do List
 
 ### Connection
 
+* Review all error handling / stop / cleanup logic to ensure graceful termination of services (including upstream)
 * Add remaining conditions to ensure state machine is robust (e.g. can't process start unless pending) and invalid commands/condtions are logged
 * Check client server version <= server version
 * Error handler for error responses from IB (see IB API docs for error codes)
@@ -94,12 +95,5 @@ To Do List
 
 ### Related package: mvc-service
 
-* Lenses for Service
-* Service resume command needed (vs reuse service start in paused status)
-* Socket service
-  * Complete model (e.g. checking and updating state)
-  * Tidy up Connection code, consistent use of STM vs IO
-  * Streamline verbose code e.g. atomically
-  * Secure SSL option
-  * Command to change socket host/port
-  * Tests and benchmarks
+See TODO.md file in the repo
+
