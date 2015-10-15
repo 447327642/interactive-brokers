@@ -13,7 +13,6 @@ import           Data.Monoid                        hiding (All, Product)
 import           Data.String
 import           Data.Time
 import           Prelude                            hiding (takeWhile)
-import           System.Locale
 
 import           API.IB.Constant
 import           API.IB.Data
