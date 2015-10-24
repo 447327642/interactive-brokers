@@ -127,7 +127,7 @@ processRequests svc@IBEventHandler{..} = do
      , rq $ RequestRealTimeBars sv 3 conES 5 BarBasisTrades False
      , rq $ RequestHistoricalData sv 4 conES refDate (IBDuration 1 D) 3600 BarBasisTrades False IBFDDateTime
      , rq $ RequestIds 3
-     , rq $ PlaceOrder sv oid conES (marketOrder oid _ibClientId Buy 1)
+     --, rq $ PlaceOrder sv oid conES (marketOrder oid _ibClientId Buy 1)
      --, rq $ PlaceOrder sv boid conES (marketOrder oid _ibClientId Sell 1)
      --, rq $ CancelOrder oid
      , rq   RequestOpenOrders

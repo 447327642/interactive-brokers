@@ -22,9 +22,11 @@ To Do List
 * Contract database, automated update
 * SSL connection to IB TWS
 
-### Build
+### Cabal file
 
-* Cabal file: standardise package dependency format to best practice
+* Standardise package dependency format to best practice
+* Remove unnecessary dependencies in sample app executable sections
+* Add stack support, standardise on a stackage version
 
 ### Design
 

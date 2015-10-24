@@ -71,7 +71,7 @@ The following messages are currently supported.
 
 ## Setup
 
-Tested on GHC 7.6.3:
+Tested on GHC 7.10.2:
 
     git clone https://github.com/cmahon/interactive-brokers.git
     git clone https://github.com/cmahon/mvc-service.git
