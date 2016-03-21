@@ -47,7 +47,6 @@ module API.IB.Monadic
   , recv
   ) where
 
-import           Control.Applicative
 import           Control.Error
 import           Control.Lens
 import           Control.Monad

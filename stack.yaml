@@ -1,0 +1,11 @@
+
+flags: {}
+packages:
+- .
+- location: ../mvc-service
+  extra-dep: true
+extra-deps:
+- currency-0.2.0.0
+- hslogger-template-2.0.3
+- mvc-1.1.2
+resolver: lts-5.8

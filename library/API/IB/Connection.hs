@@ -21,12 +21,11 @@ module API.IB.Connection
   , cfgAutoStart
   ) where
 
-import           Control.Applicative
 import           Control.Arrow                    (arr, (>>>),(|||))
 import           Control.Concurrent.Async         (Async,cancel,withAsync)
 import           Control.Exception
 import           Control.Lens                     hiding (view)
-import           Control.Monad                    (forever,void,when)
+import           Control.Monad                    (forever,when)
 import qualified Control.Monad.Trans.State.Strict as S
 import           Data.ByteString                  (ByteString)
 import qualified Data.ByteString.Char8            as BC
@@ -299,8 +298,8 @@ ibService conf@IBConfiguration{..} = do
 
   managed $ \k -> do
 
-    (vServiceIn , cServiceIn , sServiceIn)  <- spawn' Unbounded
-    (vServiceOut, cServiceOut, sServiceOut) <- spawn' Unbounded
+    (vServiceIn , cServiceIn , sServiceIn)  <- spawn' unbounded
+    (vServiceOut, cServiceOut, sServiceOut) <- spawn' unbounded
   
     let
 
@@ -367,8 +366,8 @@ type IBServiceInOut = Either ServiceIn ServiceOut
 withIB :: IBConfiguration -> (IBService -> IO x) -> IO x
 withIB conf k = do
 
-  (vServiceIn , cServiceIn , sServiceIn)  <- spawn' Unbounded
-  (vServiceOut, cServiceOut, sServiceOut) <- spawn' Unbounded
+  (vServiceIn , cServiceIn , sServiceIn)  <- spawn' unbounded
+  (vServiceOut, cServiceOut, sServiceOut) <- spawn' unbounded
 
   let
 

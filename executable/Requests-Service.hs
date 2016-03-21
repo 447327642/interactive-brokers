@@ -12,10 +12,7 @@
 
 module Main where
 
-import           Control.Applicative       ((<$>))
 import           Control.Category          ((>>>))
-import           Control.Concurrent        (threadDelay)
-import           Control.Exception
 import           Control.Lens
 import           Data.Default
 import           Data.Time
@@ -38,10 +35,10 @@ import           API.IB
 -- Reference data
 
 refDate :: LocalTime 
-refDate = LocalTime (fromGregorian 2015 02 06) (TimeOfDay 0 0 (toEnum 0))
+refDate = LocalTime (fromGregorian 2016 03 01) (TimeOfDay 0 0 (toEnum 0))
 
 conES :: IBContract
-conES = future "ES" "ESZ5" (Just $ fromGregorian 2015 12 18) GLOBEX "USD" 
+conES = future "ES" "ESZ6" (Just $ fromGregorian 2016 12 16) GLOBEX "USD" 
 
 -- -----------------------------------------------------------------------------
 -- Test strategy

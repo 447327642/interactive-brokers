@@ -11,7 +11,6 @@ import qualified Data.ByteString.Char8               as BC
 import           Data.Map                            (Map)
 import qualified Data.Map                            as Map (lookup)
 import           Data.Maybe
-import           Data.Monoid                         (mconcat)
 import           Data.String
 import           Data.Time
 import           Data.Time.Clock.POSIX

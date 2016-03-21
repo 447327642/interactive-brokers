@@ -4,7 +4,6 @@
 
 module API.IB.Util where
 
-import           Control.Applicative
 import           Data.Attoparsec.ByteString.Char8
 import           Data.ByteString.Char8            (ByteString)
 import qualified Data.ByteString.Char8            as BC (null, unpack)
@@ -12,7 +11,7 @@ import           Data.ByteString.Lazy             (toStrict)
 import           Data.ByteString.Lazy.Builder     (Builder, charUtf8,
                                                    stringUtf8, toLazyByteString)
 import           Data.List                        (intersperse)
-import           Data.Monoid                      (mconcat, (<>))
+import           Data.Monoid                      ((<>))
 import           Data.Time
 import           Data.Time.Zones
 import           Pipes                            hiding (next)

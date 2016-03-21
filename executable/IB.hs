@@ -3,9 +3,6 @@
 
 module Main where
 
-import           Control.Concurrent        (threadDelay)
-import           Control.Exception
-import           Control.Monad
 import           Control.Monad.IO.Class
 import           Data.Default
 import           Data.Time
@@ -41,13 +38,13 @@ cmd args = case args of
 
 cmdContracts :: String -> String -> IO ()
 cmdContracts sf s = ib $ do 
-  connect
+  _ <- connect
   reqContracts sf s >>= liftIO . print
   stop
 
 cmdHistory :: String -> String -> IO ()
 cmdHistory sf s = ib $ do 
-  connect
+  _ <- connect
   mcon <- reqContracts sf s
   case mcon of 
     Nothing -> return ()
@@ -65,17 +62,17 @@ req r p = r >>= \case
 
 reqContracts :: String -> String -> IB (Maybe IBContractDetails)
 reqContracts sf s = req (requestContractData (ibContract sf s)) $ \rid -> untilRecv $ \case
-  IBResponse (ContractData rid c) -> if null s || s == _conLocalSymbol (_cdSummary c)
+  IBResponse (ContractData _ c) -> if null s || s == _conLocalSymbol (_cdSummary c)
     then return (AResult c)
     else return AContinue
-  IBResponse (ContractDataEnd rid) -> return AStop
+  IBResponse (ContractDataEnd _) -> return AStop
   _ -> return AContinue
 
 reqHistory :: IBContract -> IB (Maybe [IBHistoricalDataItem])
 reqHistory con = do
   refDate <- liftIO today
-  req (requestHistoricalData con refDate (IBDuration 1 D) 3600 BarBasisTrades False IBFDDateTime) $ \rid -> untilRecv $ \case
-    IBResponse (HistoricalData rid hd) -> return (AResult hd)
+  req (requestHistoricalData con refDate (IBDuration 1 D) 3600 BarBasisTrades False IBFDDateTime) $ \_ -> untilRecv $ \case
+    IBResponse (HistoricalData _ hd) -> return (AResult hd)
     _ -> return AContinue   
 
 cmdUsage :: IO ()

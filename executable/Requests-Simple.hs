@@ -5,7 +5,6 @@
 module Main where
 
 import           Control.Concurrent        (threadDelay)
-import           Control.Exception
 import           Control.Monad
 import           Control.Monad.IO.Class
 import           Data.Default
@@ -22,7 +21,7 @@ import           API.IB
 -- Reference data
 
 conES :: IBContract
-conES = future "ES" "ESZ5" (Just $ fromGregorian 2015 12 18) GLOBEX "USD"
+conES = future "ES" "ESZ6" (Just $ fromGregorian 2016 12 16) GLOBEX "USD"
 
 -- -----------------------------------------------------------------------------
 -- Requests

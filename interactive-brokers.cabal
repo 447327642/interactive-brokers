@@ -7,11 +7,11 @@ License:                  BSD3
 License-File:             LICENSE
 Author:                   Chris Mahon
 Maintainer:               cnmahon@gmail.com
-Copyright:                Chris Mahon 2014
+Copyright:                Chris Mahon 2016
 Category:                 API
 Build-Type:               Simple
 Stability:                Experimental
-Tested-with:              GHC == 7.10.2
+Tested-with:              GHC == 7.10.3
 Cabal-Version:            >= 1.8
 Extra-Source-Files:       README.md
 
@@ -34,139 +34,86 @@ Library
                           API.IB.Parse
                           API.IB.Util
                           Pipes.Edge
-  build-depends:          base >= 4 && < 5,
-                          async >= 2.0.1.4,
-                          attoparsec >= 0.10.4.0,
-                          bytestring >= 0.10.0.2,
-                          containers >= 0.5.0.0,
-                          currency >= 0.2.0.0,
-                          data-default >= 0.5.3,
-                          errors >= 1.4.7,
-                          haskeline >= 0.7.1.1,
-                          hslogger >= 1.2.4,
-                          hslogger-template >= 2.0.2,
-                          lens >= 4.0,
-                          mvc >= 1.0,
-                          mvc-service >= 0.1,
-                          mtl >= 2.1.2,
-                          network >= 2.4.1.2,
-                          network-simple >= 0.3.0,
-                          old-locale >= 1.0.0.5,
-                          pipes >= 4.1.0,
-                          pipes-concurrency >= 2.0.2,
-                          pipes-network >= 0.6.2,
+  build-depends:          base,
+                          async,
+                          attoparsec,
+                          bytestring,
+                          containers,
+                          currency,
+                          data-default,
+                          errors,
+                          haskeline,
+                          hslogger,
+                          hslogger-template,
+                          lens,
+                          mvc,
+                          mvc-service,
+                          mtl,
+                          network,
+                          network-simple,
+                          old-locale,
+                          pipes,
+                          pipes-concurrency,
+                          pipes-network,
                           scientific,
-                          split >= 0.2.2,
-                          stm >= 2.4.2,
-                          time >= 1.5.0.1,
-                          transformers >= 0.3.0.0,
-                          tz >= 0.0.0.5
+                          split,
+                          stm,
+                          time,
+                          transformers,
+                          tz
 
 Executable ib
   main-is:                IB.hs
   default-language:       Haskell2010
   ghc-options:            -Wall -O2 -threaded -fprof-auto -rtsopts
   hs-source-dirs:         executable
-  build-depends:          base >= 4 && < 5,
-                          data-default >= 0.5.3,
-                          hslogger >= 1.2.4,
-                          interactive-brokers >= 0.1,
-                          time >= 1.4.0.1,
-                          transformers >= 0.3.0.0
+  build-depends:          base,
+                          data-default,
+                          hslogger,
+                          interactive-brokers,
+                          time,
+                          transformers
 
 Executable requests-service
   main-is:                Requests-Service.hs
   default-language:       Haskell2010
   ghc-options:            -Wall -O2 -threaded -fprof-auto -rtsopts
   hs-source-dirs:         executable
-  build-depends:          base >= 4 && < 5,
-                          async >= 2.0.1.4,
-                          attoparsec >= 0.10.4.0,
-                          bytestring >= 0.10.0.2,
-                          containers >= 0.5.0.0,
-                          data-default >= 0.5.3,
-                          errors >= 1.4.7,
-                          hslogger >= 1.2.4,
-                          interactive-brokers >= 0.1,
-                          lens >= 4.0,
-                          mtl >= 2.1.2,
-                          mvc >= 1.0,
-                          mvc-service >= 0.1,
-                          network >= 2.4.1.2,
-                          network-simple >= 0.3.0,
-                          old-locale >= 1.0.0.5,
-                          pipes >= 4.1.0,
-                          pipes-concurrency >= 2.0.2,
-                          pipes-network >= 0.6.2,
-                          scientific >= 0.3.2.1,
-                          split >= 0.2.2,
-                          stm >= 2.4.2,
-                          time >= 1.5.0.1,
-                          transformers >= 0.3.0.0,
-                          tz >= 0.0.0.5
+  build-depends:          base,
+                          data-default,
+                          hslogger,
+                          interactive-brokers,
+                          lens,
+                          mvc,
+                          mvc-service,
+                          network-simple,
+                          old-locale,
+                          time,
+                          tz
 
 Executable requests-simple
   main-is:                Requests-Simple.hs
   default-language:       Haskell2010
   ghc-options:            -Wall -O2 -threaded -fprof-auto -rtsopts
   hs-source-dirs:         executable
-  build-depends:          base >= 4 && < 5,
-                          async >= 2.0.1.4,
-                          attoparsec >= 0.10.4.0,
-                          bytestring >= 0.10.0.2,
-                          containers >= 0.5.0.0,
-                          data-default >= 0.5.3,
-                          errors >= 1.4.7,
-                          hslogger >= 1.2.4,
-                          interactive-brokers >= 0.1,
-                          lens >= 4.0,
-                          mtl >= 2.1.2,
-                          mvc >= 1.0,
-                          mvc-service >= 0.1,
-                          network >= 2.4.1.2,
-                          network-simple >= 0.3.0,
-                          old-locale >= 1.0.0.5,
-                          pipes >= 4.1.0,
-                          pipes-concurrency >= 2.0.2,
-                          pipes-network >= 0.6.2,
-                          scientific >= 0.3.2.1,
-                          split >= 0.2.2,
-                          stm >= 2.4.2,
-                          time >= 1.5.0.1,
-                          transformers >= 0.3.0.0,
-                          tz >= 0.0.0.5
+  build-depends:          base,
+                          data-default,
+                          hslogger,
+                          interactive-brokers,
+                          time,
+                          transformers
 
 Executable shell
   main-is:                Shell.hs
   default-language:       Haskell2010
   ghc-options:            -Wall -O2 -threaded -fprof-auto -rtsopts
   hs-source-dirs:         executable
-  build-depends:          base >= 4 && < 5,
-                          async >= 2.0.1.4,
-                          attoparsec >= 0.10.4.0,
-                          bytestring >= 0.10.0.2,
-                          containers >= 0.5.0.0,
-                          data-default >= 0.5.3,
-                          errors >= 1.4.7,
-                          haskeline >= 0.7.1.1,
-                          hslogger >= 1.2.4,
-                          interactive-brokers >= 0.1,
-                          lens >= 4.0,
-                          mtl >= 2.1.2,
-                          mvc >= 1.0,
-                          mvc-service >= 0.1,
-                          network >= 2.4.1.2,
-                          network-simple >= 0.3.0,
-                          old-locale >= 1.0.0.5,
-                          pipes >= 4.1.0,
-                          pipes-concurrency >= 2.0.2,
-                          pipes-network >= 0.6.2,
-                          scientific >= 0.3.2.1,
-                          split >= 0.2.2,
-                          stm >= 2.4.2,
-                          time >= 1.5.0.1,
-                          transformers >= 0.3.0.0,
-                          tz >= 0.0.0.5
+  build-depends:          base,
+                          data-default,
+                          haskeline,
+                          interactive-brokers,
+                          mvc,
+                          time
 
 test-suite tasty
   main-is:                Tasty.hs
@@ -175,41 +122,5 @@ test-suite tasty
   hs-source-dirs:         test-suite
   type:                   exitcode-stdio-1.0
 
---test-suite doctest
---  main-is:                DocTest.hs
---  build-depends:          base, Glob == 0.*, doctest == 0.*
---  default-language:       Haskell2010
---  hs-source-dirs:         test-suite
---  type:                   exitcode-stdio-1.0
-
-test-suite hpc
-  main-is:                HPC.hs
-  build-depends:          base, process == 1.*, regex-compat == 0.*
-  default-language:       Haskell2010
-  hs-source-dirs:         test-suite
-  type:                   exitcode-stdio-1.0
-
-test-suite haddock
-  main-is:                Haddock.hs
-  build-depends:          base, process == 1.*, regex-compat == 0.*
-  default-language:       Haskell2010
-  hs-source-dirs:         test-suite
-  type:                   exitcode-stdio-1.0
-
-test-suite hlint
-  main-is:                HLint.hs
-  build-depends:          base, hlint == 1.8.*
-  default-language:       Haskell2010
-  hs-source-dirs:         test-suite
-  type:                   exitcode-stdio-1.0
-
-benchmark benchmarks
-  main-is:                Bench.hs
-  build-depends:          base,
-                          interactive-brokers >= 0.1,
-                          criterion == 0.*
-  default-language:       Haskell2010
-  hs-source-dirs:         benchmark
-  type:                   exitcode-stdio-1.0
 
 
